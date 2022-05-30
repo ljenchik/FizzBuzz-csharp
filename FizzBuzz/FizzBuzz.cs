@@ -2,26 +2,43 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
+
+
+        public int indexOfB(string[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].StartsWith("B"))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
         public void DoFizzBuzz(int maxNumber)
         {
             for (int i = 1; i <= maxNumber; i++)
             {
-                if (i % 3 == 0 & i % 5 == 0) 
+                List<string> result = new List<string>();
+                if (i % 3 == 0)
                 {
-                    Console.WriteLine("FizzBuzz");
+                    result.Add("Fizz");
                 }
-                else if (i % 3 == 0) 
+                if (i % 5 == 0)
                 {
-                    Console.WriteLine("Fizz");
+                    result.Add("Buzz");
                 }
-                else if (i % 5 == 0) 
+                if (i % 7 == 0)
                 {
-                    Console.WriteLine("Buzz");
+                    result.Add("Bang");
                 }
-                else
+                if (result.Count == 0)
                 {
-                    Console.WriteLine(i);
+                    result.Add(i.ToString());
                 }
+                Console.WriteLine(string.Join("", result));
             }
         }
     }
