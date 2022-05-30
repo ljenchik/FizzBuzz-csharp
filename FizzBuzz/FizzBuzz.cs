@@ -2,7 +2,13 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        public int indexOfB(List<String> arr)
+
+        private bool IsDivisible(int number, int divisor)
+        {
+            return number % divisor == 0;
+        }
+
+        private int indexOfB(List<String> arr)
         {
             for (int i = 0; i < arr.Count; i++)
             {
@@ -13,40 +19,31 @@ namespace FizzBuzz
             }
             return -1;
         }
-        public static List<String> Splice(List<String> result, int index)
-        {
-            List<String> firstPart = result.GetRange(0, index);
-            firstPart.Add("Fezz");
-            List<String> secondPart = result.GetRange(index, result.Count - index);
-            firstPart.AddRange(secondPart);
-            return firstPart;
-        }
-
         public void DoFizzBuzz(int maxNumber)
         {
             for (int i = 1; i <= maxNumber; i++)
             {
                 List<string> result = new List<string>();
-                if (i % 3 == 0)
+                if (IsDivisible(i, 3))
                 {
                     result.Add("Fizz");
                 }
-                if (i % 5 == 0)
+                if (IsDivisible(i, 5))
                 {
                     result.Add("Buzz");
                 }
-                if (i % 7 == 0)
+                if (IsDivisible(i, 7))
                 {
                     result.Add("Bang");
                 }
-                if (i % 11 == 0)
+                if (IsDivisible(i, 11))
                 {
                     result = new List<string>
                     {
                         "Bong"
                     };
                 }
-                if (i % 13 == 0)
+                if (IsDivisible(i, 13))
                 {
                     if (indexOfB(result) == -1)
                     {
@@ -54,10 +51,10 @@ namespace FizzBuzz
                     }
                     else
                     {
-                        result = Splice(result, indexOfB(result));
+                        result.Insert(indexOfB(result), "Fezz");
                     }
                 }
-                if (i % 17 == 0)
+                if (IsDivisible(i, 17))
                 {
                     result.Reverse();
                 }
