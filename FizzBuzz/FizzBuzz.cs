@@ -16,33 +16,9 @@ namespace FizzBuzz
         public static List<String> Splice(List<String> result, int index)
         {
             List<String> firstPart = result.GetRange(0, index);
-            Console.WriteLine("firstPart before 'Fezz' is added:");
-            foreach (string word in firstPart) 
-            {
-                Console.WriteLine($"->{word}");
-            }
-            Console.WriteLine("--");
             firstPart.Add("Fezz");
-            Console.WriteLine("firstPart after 'Fezz' is added:");
-            foreach (string word in firstPart) 
-            {
-                Console.WriteLine($"->{word}");
-            }
-            Console.WriteLine("--");
             List<String> secondPart = result.GetRange(index, result.Count - index);
-            Console.WriteLine("secondPart:");
-            foreach (string word in secondPart) 
-            {
-                Console.WriteLine($"->{word}");
-            }
-            Console.WriteLine("--");
             firstPart.AddRange(secondPart);
-            Console.WriteLine("firstPart after secondPart is added:");
-            foreach (string word in firstPart) 
-            {
-                Console.WriteLine($"->{word}");
-            }
-            Console.WriteLine("--");
             return firstPart;
         }
 
